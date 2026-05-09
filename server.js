@@ -15,6 +15,17 @@ import analyticsRoutes from "./routes/analyticsRoutes.js";
 
 
 dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = ["MONGO_URI", "JWT_SECRET"];
+const missingEnvVars = requiredEnvVars.filter((varName) => !process.env[varName]);
+
+if (missingEnvVars.length > 0) {
+  console.error(`❌ Missing required environment variables: ${missingEnvVars.join(", ")}`);
+  console.error("Please add them to your Railway dashboard or .env file.");
+  process.exit(1);
+}
+
 connectDB();
 
 const app = express();
