@@ -34,7 +34,8 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
+    process.env.FRONTEND_URL,
+    'https://mern-ecommerce-frontend-eight.vercel.app',
     'https://mern-ecommerce-frontend.vercel.app',
     'http://localhost:5173',
     'http://localhost:3000'
